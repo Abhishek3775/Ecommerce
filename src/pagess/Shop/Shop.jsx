@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { dummydata } from '../../assets/dummydata'
 import { FaShopify } from "react-icons/fa";
 import "./Shop.css"
+import PopUp from '../../Components/PopUP/PopUp';
 
 function Shop() {
 
@@ -31,7 +32,7 @@ function Shop() {
       <div className="categorySection">
       
         {category.map((item)=>(
-          <div className="categoryCard" onClick={()=>{
+          <div className="categoryCard" key = {item.name || item.id} onClick={()=>{
             filterProduct(item.name)
           }}>
             <img src={item.image} alt="" />
@@ -46,6 +47,7 @@ function Shop() {
        <div className="productSection">
 {cate.map((item)=>(
  < Product 
+ key = {item.id}
  name = {item.name}
  image = {item.image}
  price = {item.price}

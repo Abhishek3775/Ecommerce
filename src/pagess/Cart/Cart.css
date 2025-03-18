@@ -14,3 +14,34 @@
     flex-direction: column;
     padding-top: 40px;
 }
+
+.EmptyCart{
+    max-width: 90%;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.EmptyCart img{
+    width: 90%;
+    max-width: 400px;
+}
+
+.cartCartSection{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.priceSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 30px;
+}

@@ -1,24 +1,42 @@
-import React from 'react'
-import "./CartCard.css"
+import React, { useState } from 'react';
+import "./CartCard.css";
 import { RiDeleteBinLine } from "react-icons/ri";
-import image1 from "../../assets/image1.jpg"
+import { useDispatch } from 'react-redux';
+import { removeItem } from '../../Redux/cartSlice';
 
-function CartCard() {
+function CartCard({ name, price, image, id }) {
+  let dispatch = useDispatch();
+  let [popup, setPopup] = useState(false);
+
+  const handleRemove = () => {
+    setPopup(true);
+    
+    setTimeout(() => {
+      dispatch(removeItem(id)); // ✅ Delayed dispatch for better UX
+      setPopup(false); // ✅ Hide popup after item removal
+    }, 1500);
+  };
+
   return (
     <div className="CartCard">
-        <div className="leftCard">
-            <img src={image1} alt="" />
-            <div className="namePrice">
-                <span>Name</span>
-                <span>15000</span> 
-            </div>
+      <div className="leftCard">
+        <img src={image} alt={name} />
+        <div className="namePrice">
+          <span>{name}</span>
+          <span>₹{price}</span>
         </div>
-        <div className="rightCard">
-            <button>Remove <RiDeleteBinLine />
-            </button>
-        </div>
+      </div>
+
+      <div className="rightCard">
+        <button onClick={handleRemove}>
+          Remove <RiDeleteBinLine />
+        </button>
+      </div>
+
+      {/* Popup Message */}
+      {popup && <div className="popup">✔ Item removed successfully!</div>}
     </div>
-  )
+  );
 }
 
-export default CartCard
+export default CartCard;
