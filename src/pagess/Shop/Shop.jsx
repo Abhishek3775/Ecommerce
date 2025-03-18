@@ -49,6 +49,7 @@ function Shop() {
  name = {item.name}
  image = {item.image}
  price = {item.price}
+ id = {item.id}
  />
 ))};
 </div>

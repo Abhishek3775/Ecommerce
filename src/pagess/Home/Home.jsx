@@ -7,6 +7,7 @@ import Product from '../../Components/Products/Product'
 import { dummydata } from '../../assets/dummydata'
 
 function Home() {
+  
 
   let [cate,setCate ] = useState(dummydata);
   function filterProduct(category){
@@ -46,6 +47,7 @@ function Home() {
  name = {item.name}
  image = {item.image}
  price = {item.price}
+ id = {item.id}
  />
 ))};
 </div>

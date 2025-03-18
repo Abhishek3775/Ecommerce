@@ -3,9 +3,14 @@ import "./Nav.css"
 import { FaShopify } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { NavLink } from 'react-router-dom'
+import { NavLink,Link } from 'react-router-dom'
+import {  useDispatch, useSelector } from 'react-redux'
+
+
 
 function Nav() {
+    
+    const items  = useSelector((state) => state.cart.length)
   return (
     <div className='Nav'>
         <div className="top-nav">
@@ -18,9 +23,12 @@ function Nav() {
                 <button><CiSearch />
                 </button>
             </form>
-            <div className="cartBox">
-            <MdOutlineShoppingCart />
-            <span>0</span>
+            <div className="cartBox" >
+                <Link to="/Cart" >
+                <MdOutlineShoppingCart />
+                </Link>
+           
+            <span>{items}</span>
             </div>
         </div>
 

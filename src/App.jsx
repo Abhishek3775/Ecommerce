@@ -44,6 +44,15 @@ let Router = createBrowserRouter(
         <Contact/>
         <Footer/>
       </div>
+    },
+
+    {
+      path:"/Cart",
+      element:<div>
+        <Nav/>
+        <Cart/>
+      </div>
+
     }
 
 
